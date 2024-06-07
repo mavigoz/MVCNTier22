@@ -1,4 +1,5 @@
 ﻿using Project.BLL.DesingPattern.GenericRepository.ConctRep;
+using Project.COMMON.Tools;
 using Project.ENTITIES.Models;
 using Project.MVCUI.VMClasses;
 using System;
@@ -24,24 +25,35 @@ namespace Project.MVCUI.Controllers
             
             return View( );
         }
-        public ActionResult Login() { return View(); }
+        public ActionResult Login() {
+            
+            return View(); }
 
         [HttpPost]
         public ActionResult Login(AppUser appUser)
         {
-            bool sonuc=_appUSer.Any(x=>x.UserName==appUser.UserName    );
-            if (sonuc)
+            AppUser yakalanan = _appUSer.FirstOrDefault(x => x.UserName == appUser.UserName);
+            //bool sonuc=_appUSer.Any(x=>x.UserName==appUser.UserName    );
+            if (yakalanan == null)
             {
-                Session["Emre"] = appUser;
+                ViewBag.Kullanici = "Kullanici Bulunumadı";
 
-              
 
-                return View("Index");
+
+
+                return View();
             }
+            else
+            {
+                                                 
+              yakalanan.Password = DantextCrypt.DeCriypt(yakalanan.Password);
+                if (yakalanan.Password == appUser.Password)
+                { return View(); }
+           
             return RedirectToAction("Deneme");
-        
-        
-        
+
+            }
+
         }
         public ActionResult Deneme()
         {  return View(); }

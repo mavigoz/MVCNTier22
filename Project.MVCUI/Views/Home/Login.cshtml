@@ -6,12 +6,12 @@
 <!DOCTYPE html>
 
 <html>
- 
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" />
     <meta name="outhor" content"Emre" />
-  
+
     <meta name="description" content="" />
     <title>RegisterNow</title>
 
@@ -43,39 +43,34 @@
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-  
+
 </head>
 <body class="bx-log-in">
     <div class="container">
-    
-        <h2>@ViewBag.ZatenVar</h2>
 
-        @using (Html.BeginForm("RegisterNow","Register",FormMethod.Post,new {@class="form-signin"}))
+      @ViewBag.Kullanici
+        @TempData["Hesap Aktiffmin"]
+
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-signin" }))
         {
 
-        <br /><center><h2>Uye Olunuz</h2></center>
+            <br /><center><h2>Uye Olunuz</h2></center>
 
-        <div class="bx-log-in-circle">
-          
-            @Html.TextAreaFor(x => x.AppUser.UserName, new {@class="form form-control", placeholder = "Kullanıcı ismi" })
-            @Html.PasswordFor(x => x.AppUser.Password, new {@class="form form-control", placeholder = "Password Giriniz" })
-            @Html.TextBoxFor(x => x.AppUser.Email, new {@class="form form-control", placeholder = "Email giriniz" })
+            <div class="bx-log-in-circle">
+
+                @Html.TextAreaFor(x => x.AppUser.UserName, new { @class = "form form-control", placeholder = "Kullanıcı ismi" })
+                @Html.PasswordFor(x => x.AppUser.Password, new { @class = "form form-control", placeholder = "Password Giriniz" })
+                 
+
+                 
+                <button class=" btn btn-primary">Giriş Yap</button>
+                <div>
+                    @Html.ActionLink("Kayıt Ol", "RegisterNow", "Register")
+
+                </div>
+            </div>
 
 
-            <br />
-            Profil bilgileri<br />
-            @Html.TextBoxFor(x => x.Profile.FirstName, new  {@class="form form-control", placeholder = "isim Giriniz" })
-        @Html.TextBoxFor(x => x.Profile.LastName, new { @class = "form form-control", placeholder = "Soyad Giriniz" })
-
-            <br />
-            <button class=" btn btn-primary">Uye ol</button>
-       <div>
-           @Html.ActionLink("Giriş Yap", "Login","Home")
-
-       </div>
-        </div> 
-        
-        
         }
 
 
