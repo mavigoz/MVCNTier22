@@ -128,11 +128,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="AutentecationClasses\AdminAuthentication.cs" />
     <Compile Include="AutentecationClasses\MemberAuthentication.cs" />
     <Compile Include="ConsumerDTO\PaymentDTO.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ShoppingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -414,6 +416,10 @@
     <Content Include="OutherTools\scss\_theme\_theme.scss" />
     <Content Include="OutherTools\yarn.lock" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CategoryList.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -440,12 +446,11 @@
     <Content Include="Views\Register\RegisterOK.cshtml" />
     <Content Include="Views\Home\Deneme.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shopping\ShoppingList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

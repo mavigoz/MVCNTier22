@@ -48,21 +48,22 @@
 <body class="bx-log-in">
     <div class="container">
 
-      @ViewBag.Kullanici
-        @TempData["Hesap Aktiffmin"]
+
+
 
         @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-signin" }))
         {
-
-            <br /><center><h2>Uye Olunuz</h2></center>
-
+           <center><h2> @ViewBag.Kullanici</h2></center>
+            <br /><center><h2>Giriş Yapınız</h2></center>
+            <br />
+            <center> <h2>  @TempData["Hesap Aktifmi"]</h2></center>
             <div class="bx-log-in-circle">
 
                 @Html.TextAreaFor(x => x.AppUser.UserName, new { @class = "form form-control", placeholder = "Kullanıcı ismi" })
                 @Html.PasswordFor(x => x.AppUser.Password, new { @class = "form form-control", placeholder = "Password Giriniz" })
-                 
 
-                 
+
+
                 <button class=" btn btn-primary">Giriş Yap</button>
                 <div>
                     @Html.ActionLink("Kayıt Ol", "RegisterNow", "Register")

@@ -43,18 +43,41 @@ namespace Project.MVCUI.Controllers
 
                 return View();
             }
-            else
-            {
-                                                 
-              yakalanan.Password = DantextCrypt.DeCriypt(yakalanan.Password);
-                if (yakalanan.Password == appUser.Password)
-                { return View(); }
            
-            return RedirectToAction("Deneme");
+                                                 
+            string decrypted= DantextCrypt.DeCriypt(yakalanan.Password);
+                if (decrypted == appUser.Password && yakalanan.Role==ENTITIES.Enums.UserRole.Admin)
+                {
+
+                if (!yakalanan.Active )
+               
+                    return AktifKontrol();
+                Session["admin"] = yakalanan;
+                return RedirectToAction("CategoryList", "Category", new { area = "Admin" });
+                
+                
+                
+                
+              } else if(yakalanan.Role==ENTITIES.Enums.UserRole.Member && appUser.Password==decrypted )
+            {
+                if(!yakalanan.Active ) return AktifKontrol();
+                Session["member"] = yakalanan;
+                return RedirectToAction("ShoppingList", "Shopping");
 
             }
 
+            ViewBag.Kullanici = "Kullanici Bulunaadı";
+            return View();
+ 
+
         }
+
+        private ActionResult AktifKontrol()
+        {
+            TempData["Hesap Aktifmi"] = "Lütfen hesabını aktif hale getiriniz";
+            return View("Login");
+        }
+
         public ActionResult Deneme()
         {  return View(); }
     }
