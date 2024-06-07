@@ -1,0 +1,27 @@
+﻿@model AppUserVM
+@{
+    ViewBag.Title = "Index";
+
+
+}
+
+<h2>Login Sayfasına Hoşgeldiniz</h2>
+@{if (Session["Emre"]!=null) {
+    @( (Session["Emre"] as AppUser).UserName.ToString())
+    }
+}
+
+<div class="container">
+
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-signin" }))
+    {
+
+        @Html.TextBoxFor(x => x.AppUser.UserName, new { @class = "form form-control", placeholder = "Kullanici Adini Giriniz" }); <br />
+
+        @Html.TextBoxFor(x => x.AppUser.Password, new { @class = "form form-control", placeholder = "Şifre Girniz" }) <br />
+        <button class="btn btn-primary">Login</button>
+
+    }
+
+
+</div>

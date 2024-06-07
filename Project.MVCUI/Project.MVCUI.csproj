@@ -131,6 +131,7 @@
     <Compile Include="AutentecationClasses\AdminAuthentication.cs" />
     <Compile Include="AutentecationClasses\MemberAuthentication.cs" />
     <Compile Include="ConsumerDTO\PaymentDTO.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -437,14 +438,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Register\RegisterNow.cshtml" />
     <Content Include="Views\Register\RegisterOK.cshtml" />
-    <Content Include="Views\Sim\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Deneme.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
