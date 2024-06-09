@@ -1,7 +1,82 @@
-﻿
+﻿@using PagedList
+@using PagedList.Mvc
+
+ 
+ 
+@model PagedList.IPagedList<CategoryVM>
+
 @{
     ViewBag.Title = "CategoryList";
 }
 
-<h2>CategoryList</h2>
 
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<script src="~/OutherTools/categorycss/Table.js"></script>
+<link href="~/OutherTools/categorycss/StyleSheet1.css" rel="stylesheet" />
+<div class="container">
+    <h3>The columns titles are merged with the filters inputs thanks to the placeholders attributes</h3>
+    <hr>
+    <p>Inspired by this <a href="http://bootsnipp.com/snippets/featured/panel-tables-with-filter">snippet</a></p>
+    <div class="row">
+        <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">Users</h3>
+                <div class="pull-right">
+                    <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr class="filters">
+                        <th><input type="text" class="form-control" placeholder="#" disabled></th>
+                        <th style="color:red"><input type="text" class="form-control" placeholder="First Name" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Last Name" disabled></th>
+
+                        <th><input type="text" class="form-control" placeholder="Kotrol" disabled></th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+
+                        <tr>
+                            <td>@item.Category.ID</td>
+                            <td>@item.Category.CategoryName</td>
+                            <td>@item.Category.Description</td>
+
+                            <td><button class="btn btn-danger " id="@item.Category.ID" name="deneme">Delete</button> <button class="btn btn-warning">Update</button> </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <div>
+                @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+            </div>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+<script>
+    $(function () {
+        ('.filterable .btn-filter')
+    }
+    )
+
+
+
+
+
+
+</script>
+</div>
