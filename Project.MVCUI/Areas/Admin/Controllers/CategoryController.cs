@@ -17,9 +17,11 @@ namespace Project.MVCUI.Areas.Admin.Controllers
         // GET: Admin/Category
         // [AdminAuthentication]
         CategoryRepository _cRep;
+        ProductRepository _productRep;
         public CategoryController()
         {
             _cRep = new CategoryRepository();
+            _productRep = new ProductRepository();
         }
         public ActionResult CategoryList(int? id)
 
@@ -33,7 +35,8 @@ namespace Project.MVCUI.Areas.Admin.Controllers
 
             } : new CategoryAdminVM {
 
-                Categories = _cRep.Where(x=>x.ID== id)
+                
+               Categories= _cRep.Where(x=>x.ID== id)
             
             };
 
