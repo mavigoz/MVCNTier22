@@ -135,8 +135,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\AdminVMClasses\CategoryAdminVM.cs" />
-    <Compile Include="Areas\Admin\AdminVMClasses\ProductAdminWM.cs" />
+    <Compile Include="Areas\Admin\AdminVMClasses\ProductAdminVM.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="AutentecationClasses\AdminAuthentication.cs" />
     <Compile Include="AutentecationClasses\MemberAuthentication.cs" />
     <Compile Include="ConsumerDTO\PaymentDTO.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="VMClasses\ProductVM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\AdminScripts\AdminCategoryDTJ.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -369,6 +371,8 @@
     <Content Include="OutherTools\flatlab-master\img\gallery\5.jpg" />
     <Content Include="OutherTools\flatlab-master\img\gallery\6.jpg" />
     <Content Include="OutherTools\flatlab-master\img\green-bg.jpg" />
+    <Content Include="OutherTools\flatlab-master\img\w.png" />
+    <Content Include="OutherTools\flatlab-master\img\details_open.png" />
     <Content Include="OutherTools\flatlab-master\img\mail-avatar.jpg" />
     <Content Include="OutherTools\flatlab-master\img\mega-menu\mega-menu-images1.jpg" />
     <Content Include="OutherTools\flatlab-master\img\mega-menu\mega-menu-images2.jpg" />
@@ -500,6 +504,9 @@
     <Content Include="OutherTools\flatlab-master\.gitattributes" />
     <Content Include="OutherTools\flatlab-master\LICENSE" />
     <Content Include="OutherTools\flatlab-master\README.md" />
+    <Content Include="Areas\Admin\Views\Category\UpdateCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ProductList.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\AddCategory.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

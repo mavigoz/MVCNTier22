@@ -1,0 +1,23 @@
+﻿@model CategoryAdminVM
+@{
+    ViewBag.Title = "UpdateCategory";
+}
+
+<h2>UpdateCategory</h2>
+
+<div class="container">
+
+    @using (Html.BeginForm())
+    {
+
+        @Html.HiddenFor(x => x.Category.ID); <br /> <br />
+        @Html.TextBoxFor(x => x.Category.CategoryName);<br /> <br />
+        @Html.TextBoxFor(x => x.Category.Description);<br /> <br />
+        @Html.TextBoxFor(x => x.Category.Status);<br /> <br />
+
+        <button class="btn btn-warning">Update </button>
+
+
+    }
+
+</div>

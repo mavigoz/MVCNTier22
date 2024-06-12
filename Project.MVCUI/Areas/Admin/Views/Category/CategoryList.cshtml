@@ -7,44 +7,42 @@
 <div class="row">
     <div class="col-sm-12">
         <section class="panel">
-            <header class="panel-heading">
-                Dynamic Table
+             
+                
                 <span class="tools pull-right">
                     <a href="javascript:;" class="fa fa-chevron-down"></a>
                     <a href="javascript:;" class="fa fa-times"></a>
-                </span>
-            </header>
-            <div class="panel-body">
-                <div class="adv-table">
-                    <table class="display table table-bordered table-striped" id="dynamic-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>AÇIKALAMA</th>
-                                <th  >EKle Ve sil</th>
-                               
-                            </tr>
-                        </thead>
-                        <tbody>
-                             @foreach (Category item in Model.Categories)
-                             {
-
-                                 <tr>
-                                     <td>@item.ID </td>
-                                     <td>@item.CategoryName </td>
-                                     <td>@item.Description </td>
-                               
-                                     <td colspan="2"><button class="btn btn-danger"> Sİl</button> <button class="btn btn-warning"> Update</button></td>
-
-
-                                 </tr>
-
-                             }
-
-
-
-
+            </span>
+                                        <div class="panel-body">
+                                            <div class="adv-table">
+                                                <table class="display table table-bordered" id="hidden-table-info">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Kategori ID</th>
+                                                            <th>Kategori ismi</th>
+                                                            <th class="hidden-phone">Kategori Açıklaması</th>
+                                                            <th class="hidden-phone">Status</th>
+                                                            <th class="hidden-phone">Sil</th>
+                                                            <th class="hidden-phone">Güncelle</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (Category item in Model.Categories)
+                                                        {
+                                                            <tr class="gradeX">
+                                                                <td>@item.ID</td>
+                                                                <td>
+                                                                    @item.CategoryName
+                                                                </td>
+                                                                <td class="hidden-phone">
+                                                                    @item.Description
+                                                                </td>
+                                                                <td>
+                                                                    @item.Status
+                                                                </td>
+                                                                <td class="center hidden-phone">@Html.ActionLink("Sil", "DeleteCategory", new { id = item.ID }, new {@class="btn btn-danger"})</td>
+                                                                <td class="center hidden-phone">@Html.ActionLink("Güncelle", "UpdateCategory", new { id = item.ID }, new {@class="btn btn-warning"}) </td>
+                                                            </tr>
 
 
 
@@ -53,11 +51,35 @@
 
 
 
-                        </tbody>
-                     
-                    </table>
-                </div>
-            </div>
-        </section>
-    </div>
-</div>
+
+                                                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+                                            </div>
+                                        </div>
+                                    </section>
+                             
+
+        <script src="~/Areas/Admin/AdminScripts/AdminCategoryDTJ.js"></script>
+
+
+
+
+
+         
+  

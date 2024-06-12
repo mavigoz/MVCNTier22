@@ -1,0 +1,93 @@
+﻿@model ProductAdminVM
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<h2>ProductList</h2>
+
+ 
+
+
+ 
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <section class="panel">
+
+
+            <span class="tools pull-right">
+                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                <a href="javascript:;" class="fa fa-times"></a>
+            </span>
+            <div class="panel-body">
+                <div class="adv-table">
+                    <table class="display table table-bordered" id="hidden-table-info">
+                        <thead>
+                            <tr>
+                                <th>Kategori ID</th>
+                                <th>Kategori ismi</th>
+                                <th class="hidden-phone">Kategori Açıklaması</th>
+                                <th class="hidden-phone">Status</th>
+                                <th class="hidden-phone">Sil</th>
+                                <th class="hidden-phone">Güncelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Product item in Model.Products)
+                            {
+
+
+                                <tr class="gradeX">
+                                    <td>@item.ID</td>
+                                    <td>
+                                        @item.ProductName
+                                    </td>
+                                    <td class="hidden-phone">
+                                        @item.UnitPrice
+                                    </td>
+                                    <td>
+                                        @item.Status
+                                    </td>
+                                    <td class="center hidden-phone">@Html.ActionLink("Sil", "DeleteProduct", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
+                                    <td class="center hidden-phone">@Html.ActionLink("Güncelle", "UpdateProduct", new { id = item.ID }, new { @class = "btn btn-warning" }) </td>
+                                </tr>
+
+
+
+
+
+
+
+                            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+                </div>
+            </div>
+        </section>
+
+
+        <script src="~/Areas/Admin/AdminScripts/AdminCategoryDTJ.js"></script>
+
+
+
+
+
+
+
+
