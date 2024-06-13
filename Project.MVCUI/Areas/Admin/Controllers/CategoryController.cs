@@ -66,6 +66,7 @@ namespace Project.MVCUI.Areas.Admin.Controllers
         }
         public ActionResult UpdateCategory(int id)
         {
+            TempData["sonuc"] = id;
             CategoryAdminVM vM = new CategoryAdminVM { 
             
             
@@ -79,6 +80,7 @@ namespace Project.MVCUI.Areas.Admin.Controllers
         [HttpPost]  
         public ActionResult UpdateCategory(Category category)
         {
+            category.ID = Convert.ToInt32(TempData["sonuc"]);
             _cRep.Update(category);
             return RedirectToAction("CategoryList");
 

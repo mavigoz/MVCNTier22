@@ -3,21 +3,81 @@
     ViewBag.Title = "UpdateCategory";
 }
 
-<h2>UpdateCategory</h2>
+ 
+@using (Html.BeginForm())
+{<div class="row">
 
-<div class="container">
+        <div class="col-sm-12">
+            <section class="panel">
 
-    @using (Html.BeginForm())
-    {
+                <header class="panel-heading">
+                    Kategori Güncelleme Sayfası
+                </header>
+                <div class="panel-body">
 
-        @Html.HiddenFor(x => x.Category.ID); <br /> <br />
-        @Html.TextBoxFor(x => x.Category.CategoryName);<br /> <br />
-        @Html.TextBoxFor(x => x.Category.Description);<br /> <br />
-        @Html.TextBoxFor(x => x.Category.Status);<br /> <br />
+                    <div class="form-group">
+                        <label class="col-sm-2">Kategori İsmi</label>
+                        <div class="col-sm-10">
+                        @Html.HiddenFor(x => x.Category.ID);
+                            @Html.TextBoxFor(x => x.Category.CategoryName, new { @class = "form form-control", placeholder = "Kategori ismi" })
 
-        <button class="btn btn-warning">Update </button>
+
+                        </div>
 
 
-    }
 
-</div>
+                    </div>  <br /><br />
+                    <div class="form-group">
+
+                        <label class="col-sm-2">Açıklama</label>
+                        <div class="col-sm-10"> @Html.TextBoxFor(x => x.Category.Description, new { @class = "form form-control", placeholder = "Açıklama Giriniz" })   </div>
+
+                    </div>
+
+
+
+                    <br /><br />
+                    <div class="form-group">
+
+                        <label class="col-sm-2">Açıklama</label>
+                        <div class="col-sm-10"> @Html.TextBoxFor(x => x.Category.Status, new { @class = "form form-control", placeholder = "Durum" })   </div>
+
+                    </div>
+
+
+
+                    <br /><br />
+                    <div class="form-group">
+                        <label class="col-sm-2">Kategori ismi</label>
+                        <label class="col-sm-10"><button class="btn btn-primary">GUNCELLE</button></label>
+
+                    </div>
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+}
+
+
+
+ 

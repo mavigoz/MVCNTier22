@@ -25,10 +25,10 @@
                     <table class="display table table-bordered" id="hidden-table-info">
                         <thead>
                             <tr>
-                                <th>Kategori ID</th>
-                                <th>Kategori ismi</th>
-                                <th class="hidden-phone">Kategori Açıklaması</th>
-                                <th class="hidden-phone">Status</th>
+                                <th>Urun ID</th>
+                                <th>Urun ismi</th>
+                                <th class="hidden-phone">Urun Fiyati</th>
+                                <th class="hidden-phone">Urun Kategori ID</th>
                                 <th class="hidden-phone">Sil</th>
                                 <th class="hidden-phone">Güncelle</th>
                             </tr>
@@ -47,7 +47,7 @@
                                         @item.UnitPrice
                                     </td>
                                     <td>
-                                        @item.Status
+                                        @item.CategoryID
                                     </td>
                                     <td class="center hidden-phone">@Html.ActionLink("Sil", "DeleteProduct", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
                                     <td class="center hidden-phone">@Html.ActionLink("Güncelle", "UpdateProduct", new { id = item.ID }, new { @class = "btn btn-warning" }) </td>

@@ -22,7 +22,7 @@ namespace Project.MVCUI.Areas.Admin.Controllers
         // GET: Admin/Product
         public ActionResult ProductList(int? id)
         {
-            ProductAdminVM vM = id == null ? new ProductAdminVM { Products = _pRep.Where(x => x.ID == id) } : new ProductAdminVM { Products = _pRep.GetAll() };
+            ProductAdminVM vM = id == null ? new ProductAdminVM { Products = _pRep.GetAll() } : new ProductAdminVM { Products = _pRep.Where(x => x.CategoryID == id) };
             return View(vM);
         }
        public ActionResult AddProduct()
