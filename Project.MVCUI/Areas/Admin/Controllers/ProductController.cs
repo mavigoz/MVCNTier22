@@ -2,9 +2,12 @@
 using Project.BLL.DesingPattern.SingletonPatterns;
 using Project.ENTITIES.Models;
 using Project.MVCUI.Areas.Admin.AdminVMClasses;
+using Project.MVCUI.Tool;
+using Project.MVCUI.VMClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
 
@@ -14,10 +17,11 @@ namespace Project.MVCUI.Areas.Admin.Controllers
     public class ProductController : Controller
     {
         ProductRepository _pRep;
-
+        CategoryRepository _cRep;
         public ProductController()
         {
-            _pRep = new ProductRepository() ;        
+            _pRep = new ProductRepository() ;    
+            _cRep = new CategoryRepository() ;
         }
         // GET: Admin/Product
         public ActionResult ProductList(int? id)
@@ -26,16 +30,24 @@ namespace Project.MVCUI.Areas.Admin.Controllers
             return View(vM);
         }
        public ActionResult AddProduct()
-        { return View();
+        {
+
+            ProductVM vM = new ProductVM {
+
+                Categories = _cRep.GetActives()
+            
+            };
+            
+            return View();
         
         
         
         
         }
         [HttpPost]
-        public ActionResult AddProduc(Product  product)
+        public ActionResult AddProduct(Product  product,HttpPostedFileBase image,string fileName)
         {
-
+            product.ImagePath = ImageUploader.UploadImage("/Picturs/", image, fileName);
             _pRep.Add(product);
             return RedirectToAction("ProductList");
 
@@ -46,10 +58,21 @@ namespace Project.MVCUI.Areas.Admin.Controllers
         {
             ProductAdminVM vM = new ProductAdminVM { 
             
-            Product=_pRep.Find(id)
+            Product=_pRep.Find(id),
+            Categories = _cRep.GetActives()
             };
         
         return View(vM);
+        
+        }
+        [HttpPost]
+        public ActionResult UpdateProduct(Product product,HttpPostedFileBase image,string fileName)
+        {
+            product.ImagePath = ImageUploader.UploadImage("/Picturs/", image, fileName);
+            _pRep.Update(product);
+
+            
+            return RedirectToAction("ProductList");
         
         }
         public ActionResult DeleteProduct(int id)

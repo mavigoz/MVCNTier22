@@ -1,10 +1,16 @@
-﻿
-@model  ProductAdminVM
+﻿@model ProductAdminVM
 @{
-    ViewBag.Title = "CategoryList";
+    ViewBag.Title = "ProductList";
 }
 
-<h2>@Html.ActionLink("Urun Ekle", "AddProduct", "Product", null, new {@class="btn btn-primary"})</h2>
+<h2>@Html.ActionLink("Ürün Ekle", "AddProduc", "Product", null, new { @class = "btn btn-primary" })</h2>
+
+ 
+
+
+ 
+
+
 <div class="row">
     <div class="col-sm-12">
         <section class="panel">
@@ -19,27 +25,19 @@
                     <table class="display table table-bordered" id="hidden-table-info">
                         <thead>
                             <tr>
-                                <th>Kategori ID</th>
-
-                                <th>Ürün İsmi</th>
-
-                                <th class="hidden-phone">Ürün Fiyati</th>
-                                <th class="hidden-phone">Ürün Stok</th>
-
-
-                                <th>Ürün Kategori</th>
-                                <th class="hidden-phone">Ürün Resmi</th>
-
-                                <th>Durum  </th>
-
-                                <th>Sil  </th>
-
-                                <th>Güncelle  </th>
+                                <th>Urun ID</th>
+                                <th>Urun ismi</th>
+                                <th class="hidden-phone">Urun Fiyati</th>
+                                <th class="hidden-phone">Urun Kategori ID</th>
+                                <th class="hidden-phone">Sil</th>
+                                <th class="hidden-phone">Güncelle</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (Product item in Model.Products)
                             {
+
+
                                 <tr class="gradeX">
                                     <td>@item.ID</td>
                                     <td>
@@ -48,33 +46,21 @@
                                     <td class="hidden-phone">
                                         @item.UnitPrice
                                     </td>
-                                    <td>@item.UnitsInStock</td>
                                     @if (item.Category == null)
                                     {
-
-
-                                        <td>Kategorisi Belirlenmemiş</td>
-
+                                        <td>Category Belirtilmemiş</td>
                                     }
                                     else
                                     {
-                                        <td>
-                                            @item.Category.CategoryName
-                                        </td>
-                                    }
 
-                                    <td  >
-                                        <img width="30" height="30" title="@item.ProductName" src=" @item.ImagePath" />
-                                        
-                                    </td>
-                                    <td>
-                                        @item.Status
+                                        <td>@item.Category.CategoryName</td>
+                                    }
+                                    <td class="hidden-phone">
+                                        <img width="30"  height="30" title="@item.ProductName" src="@item.ImagePath"/>
                                     </td>
                                     <td class="center hidden-phone">@Html.ActionLink("Sil", "DeleteProduct", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
                                     <td class="center hidden-phone">@Html.ActionLink("Güncelle", "UpdateProduct", new { id = item.ID }, new { @class = "btn btn-warning" }) </td>
                                 </tr>
-
-
 
 
 
@@ -98,15 +84,15 @@
 
 
 
-                    </table>
+</table>
 
                 </div>
             </div>
         </section>
+ 
 
+        <script src="~/Areas/Admin/AdminScripts/AdminCategoryDTJ.js"></script>
 
-       
-        <script src="~/Areas/Admin/AdminScripts/AdminProductDTJ.js"></script>
 
 
 
