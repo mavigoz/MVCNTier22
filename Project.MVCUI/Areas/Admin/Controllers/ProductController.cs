@@ -32,13 +32,14 @@ namespace Project.MVCUI.Areas.Admin.Controllers
        public ActionResult AddProduct()
         {
 
-            ProductVM vM = new ProductVM {
-
-                Categories = _cRep.GetActives()
+            ProductAdminVM vM = new ProductAdminVM
+            {
+                Products=_pRep.GetAll(),
+                Categories = _cRep.GetAll()
             
             };
             
-            return View();
+            return View(vM);
         
         
         
