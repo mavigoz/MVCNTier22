@@ -26,7 +26,7 @@ namespace Project.MVCUI.Areas.Admin.Controllers
         // GET: Admin/Product
         public ActionResult ProductList(int? id)
         {
-            ProductAdminVM vM = id == null ? new ProductAdminVM { Products = _pRep.GetAll() } : new ProductAdminVM { Products = _pRep.Where(x => x.CategoryID == id) };
+            ProductAdminVM vM = id == null ? new ProductAdminVM { Products = _pRep.GetActives() } : new ProductAdminVM { Products = _pRep.Where(x => x.CategoryID == id) };
             return View(vM);
         }
        public ActionResult AddProduct()
@@ -53,8 +53,7 @@ namespace Project.MVCUI.Areas.Admin.Controllers
             return RedirectToAction("ProductList");
 
         }
-        public ActionResult UpdateProduct()
-        { return View(); }
+       
         public ActionResult UpdateProduct(int id)
         {
             ProductAdminVM vM = new ProductAdminVM { 
@@ -62,7 +61,8 @@ namespace Project.MVCUI.Areas.Admin.Controllers
             Product=_pRep.Find(id),
             Categories = _cRep.GetActives()
             };
-        
+            //Güncellenecek Product Resim Orjinalini Aldım
+            TempData["orjinResim"] = vM.Product.ImagePath;
         return View(vM);
         
         }
@@ -70,12 +70,21 @@ namespace Project.MVCUI.Areas.Admin.Controllers
         public ActionResult UpdateProduct(Product product,HttpPostedFileBase image,string fileName)
         {
             product.ImagePath = ImageUploader.UploadImage("/Picturs/", image, fileName);
+
+            //İmageUploader 2 ve 3 değerlerini yada resim dğru Şekilde yüklendyise yolunu döndürür
+            //eğer sonuç 2 ve 3 ise öncekş Resim tempdata onu Bırakıyoruz
+            if (product.ImagePath == "2" || product.ImagePath == "3")
+            {
+
+                product.ImagePath = TempData["orjinResim"].ToString();
+            }
             _pRep.Update(product);
 
             
             return RedirectToAction("ProductList");
         
         }
+                             
         public ActionResult DeleteProduct(int id)
         {
 

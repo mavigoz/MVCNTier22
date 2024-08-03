@@ -3,8 +3,9 @@
 @{
     ViewBag.Title = "CategoryList";
 }
-
-<h2>@Html.ActionLink("Urun Ekle", "AddProduct", "Product", null, new {@class="btn btn-primary"})</h2>
+<script src="~/OutherTools/lithbox/lightbox-2.6.min.js"></script>
+<link href="~/OutherTools/lithbox/lightbox.css" rel="stylesheet" />
+<h2>@Html.ActionLink("Urun Ekle", "AddProduct", "Product", null, new { @class = "btn btn-primary" })</h2>
 <div class="row">
     <div class="col-sm-12">
         <section class="panel">
@@ -62,10 +63,11 @@
                                             @item.Category.CategoryName
                                         </td>
                                     }
-
-                                    <td  >
-                                        <img width="30" height="30" title="@item.ProductName" src=" @item.ImagePath" />
-                                        
+                                    @* Resim büyütmek için  a link kullan  lithbox indir nugetpacgesten**@
+                                    <td>
+                                        <a href="@item.ImagePath" class="example-image-link" data-lightbox="example-1">
+                                            <img width="30" height="30" title="@item.ProductName" src=" @item.ImagePath" />
+                                        </a>
                                     </td>
                                     <td>
                                         @item.Status
@@ -105,10 +107,5 @@
         </section>
 
 
-       
+
         <script src="~/Areas/Admin/AdminScripts/AdminProductDTJ.js"></script>
-
-
-
-
-

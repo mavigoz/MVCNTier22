@@ -66,6 +66,10 @@ namespace Project.MVCUI.Areas.Admin.Controllers
         }
         public ActionResult UpdateCategory(int id)
         {
+            // Değiştirilecek olan Id  Temdata   sonuc ismine kaydediyorum 
+            //İnspact kısmından hiddenfor ile gizlediğim Id yi Değiştirebilir
+            //Sonuc olarak başka category güncellemeyi Engellemek İçin Alınmış bir önlem
+
             TempData["sonuc"] = id;
             CategoryAdminVM vM = new CategoryAdminVM { 
             
@@ -79,7 +83,7 @@ namespace Project.MVCUI.Areas.Admin.Controllers
         }
         [HttpPost]  
         public ActionResult UpdateCategory(Category category)
-        {
+        {  //Inspecten değiştirse bile value  farketmez  kontrol altına alındı
             category.ID = Convert.ToInt32(TempData["sonuc"]);
             _cRep.Update(category);
             return RedirectToAction("CategoryList");
