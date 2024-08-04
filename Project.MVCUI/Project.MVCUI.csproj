@@ -158,6 +158,7 @@
     <Compile Include="VMClasses\OrderVM.cs" />
     <Compile Include="VMClasses\PaginationVM.cs" />
     <Compile Include="VMClasses\ProductVM.cs" />
+    <Compile Include="VMClasses\ShoopingWM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\AdminScripts\AdminCategoryDTJ.js" />
@@ -553,6 +554,7 @@
     <Content Include="Views\Home\Deneme.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shopping\ShoppingList.cshtml" />
+    <Content Include="Views\Shopping\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,20 +7,20 @@ namespace Project.MVCUI.Models.ShoppingTools
 {
     public class Cart
     {
-        Dictionary<int, CartItem> _sepetim;
+       Dictionary<int, CartItem> _sepetim;
         public Cart()
         {
-            new Dictionary<int, CartItem>();
+     _sepetim = new Dictionary<int, CartItem>();
         }
 
-        public List<CartItem> Listele 
+        public   List<CartItem> Listele 
         {
             get { 
         
         return _sepetim.Values.ToList();
             }
         }
-        public void SepeteEkle(CartItem item) {
+        public  void SepeteEkle(CartItem item) {
 
             if (_sepetim.ContainsKey(item.ID) == true)
             {

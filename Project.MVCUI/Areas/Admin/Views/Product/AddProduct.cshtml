@@ -1,12 +1,14 @@
 ﻿
- 
+
 
 @model ProductAdminVM
 @{
     ViewBag.Title = "AddProduct";
 }
-  @*Eğer backend dosya göndereceksek ek parametre kullanmamız gerekiyor anoni tipte new{encypte="multipart/form-data" şeklinde} *@
-@using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new {enctype="multipart/form-data"}))
+<script src="~/OutherTools/lithbox/lightbox-2.6.min.js"></script>
+<link href="~/OutherTools/lithbox/lightbox.css" rel="stylesheet" />
+@*Eğer backend dosya göndereceksek ek parametre kullanmamız gerekiyor anoni tipte new{encypte="multipart/form-data" şeklinde} *@
+@using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {<div class="row">
 
         <div class="col-sm-12">
@@ -22,18 +24,18 @@
                         <div class="col-sm-10">
                             @Html.TextBoxFor(x => x.Product.ProductName, new { @class = "form form-control", placeholder = "Kategori ismi" })
 
-                            <br />    
+                            <br />
                         </div>
 
 
 
-                    </div> 
-                                  <div class="form-group">
+                    </div>
+                    <div class="form-group">
 
-                                      <label class="col-sm-2">Urun Fiyati</label>
-                                      <div class="col-sm-10"> @Html.TextBoxFor(x => x.Product.UnitPrice, new { @class = "form form-control", placeholder = "Açıklama Giriniz" })   <br />  </div>
-                                
-                                  </div>
+                        <label class="col-sm-2">Urun Fiyati</label>
+                        <div class="col-sm-10"> @Html.TextBoxFor(x => x.Product.UnitPrice, new { @class = "form form-control", placeholder = "Açıklama Giriniz" })   <br />  </div>
+
+                    </div>
 
                     <div class="form-group">
 
@@ -45,9 +47,9 @@
                     <div class="form-group">
 
                         <label class="col-sm-2">Kategori İsmi  </label>
-                   
+
                         <div class="col-sm-10"> @Html.DropDownListFor(x => x.Product.CategoryID, new SelectList(Model.Categories, "ID", "CategoryName"), "lütfen Seçiniz", new { @class = "form form-control" }) <br />   </div>
-                            
+
                     </div>
                     <br />
                     <div class="form-group">
@@ -55,11 +57,11 @@
                         <label class="col-sm-2">Resim Seç</label>
                         <div class="col-sm-10">
                             <input type="file" name="image" class="form form-contol" />
-                            @Html.TextBox("fileName",null, new {@class="form form-control",placeholder="Resim Giriniz"})
+                            @Html.TextBox("fileName", null, new { @class = "form form-control", placeholder = "Resim Giriniz" })
 
                             <br />    <br />    <br />
                         </div>
-                        
+
                     </div>
 
                     <br /><br />
@@ -77,7 +79,7 @@
 
 
 
-</section>
+            </section>
 
 
 

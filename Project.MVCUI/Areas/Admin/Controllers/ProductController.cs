@@ -26,7 +26,7 @@ namespace Project.MVCUI.Areas.Admin.Controllers
         // GET: Admin/Product
         public ActionResult ProductList(int? id)
         {
-            ProductAdminVM vM = id == null ? new ProductAdminVM { Products = _pRep.GetActives() } : new ProductAdminVM { Products = _pRep.Where(x => x.CategoryID == id) };
+            ProductAdminVM vM = id == null ? new ProductAdminVM { Products = _pRep.GetAll() } : new ProductAdminVM { Products = _pRep.Where(x => x.CategoryID == id) };
             return View(vM);
         }
        public ActionResult AddProduct()
@@ -63,8 +63,10 @@ namespace Project.MVCUI.Areas.Admin.Controllers
             };
             //Güncellenecek Product Resim Orjinalini Aldım
             TempData["orjinResim"] = vM.Product.ImagePath;
-        return View(vM);
-        
+            TempData["orjinID"] = vM.Product.ID ;
+            return View(vM);
+            //Güncellenecek Product Id Inspecten Müdahle Engellensin
+           
         }
         [HttpPost]
         public ActionResult UpdateProduct(Product product,HttpPostedFileBase image,string fileName)
@@ -78,6 +80,8 @@ namespace Project.MVCUI.Areas.Admin.Controllers
 
                 product.ImagePath = TempData["orjinResim"].ToString();
             }
+              product.ID = Convert.ToInt32(TempData["orjinID"]);
+
             _pRep.Update(product);
 
             

@@ -12,7 +12,7 @@ namespace Project.MVCUI.VMClasses
         public Product Product { get; set; }
 
         public List<Category> Categories { get; set; }
-        public IPagedList<Product>   Products { get; set; } //SAyffalama işlemi için tutulan property
+        public IPagedList<Product>   PagedProducts { get; set; } //SAyffalama işlemi için tutulan property
 
     }
 }

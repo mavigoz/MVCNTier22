@@ -1,0 +1,104 @@
+﻿@model ShoopingWM
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<script src="~/OutherTools/lithbox/lightbox-2.6.min.js"></script>
+<link href="~/OutherTools/lithbox/lightbox.css" rel="stylesheet" />
+
+ 
+
+<div class="row">
+    <div class="col-sm-12">
+        <section class="panel">
+
+
+            <span class="tools pull-right">
+                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                <a href="javascript:;" class="fa fa-times"></a>
+            </span>
+            <div class="panel-body">
+                <div class="adv-table">
+                    <table class="display table table-bordered" id="hidden-table-info">
+                        <thead>
+                            <tr>
+                                <th>Ürün ID</th>
+
+                                <th>Ürün İsmi</th>
+
+                                <th class="hidden-phone">Ürün Fiyati</th>
+                                <th class="hidden-phone">Ürün Stok</th>
+
+
+
+                                <th class="hidden-phone">Ürün Resmi</th>
+
+
+
+                                <th>Sil  </th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (CartItem item in Model.CartItems)
+                            {
+                                <tr class="gradeX">
+                                    <td>@item.ID</td>
+                                    <td>
+                                        @item.Name
+                                    </td>
+                                    <td class="hidden-phone">
+                                        @item.Price
+
+                                    </td>
+                                    <td>@item.Amount</td>
+
+                                    @* Resim büyütmek için  a link kullan  lithbox indir nugetpacgesten**@
+                                    <td>
+                                        <a href="@item.ImagePath" class="example-image-link" data-lightbox="example-1">
+                                            <img width="30" height="30" title="@item.Name" src=" @item.ImagePath" />
+                                        </a>
+                                    </td>
+
+                                    <td class="center hidden-phone">@Html.ActionLink("Sil", "DeleteList", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
+
+                                </tr>
+
+
+
+
+
+
+
+
+
+                            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </table>
+
+                </div>
+            </div>
+            <br /><br />
+            <div>@Model.Carts.TotalPrice   </div>
+        </section>
+
+
+
+        
