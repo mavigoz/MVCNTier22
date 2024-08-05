@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿ 
+
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -453,11 +456,20 @@
                             <span>Multi level Menu</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="javascript:;">Menu Item 1</a></li>
+                         
+                                <li><a href="javascript:;">Menu 1</a></li>
+                        
+
+
+
                             <li class="sub-menu">
                                 <a href="boxed_page.html">Menu Item 2</a>
                                 <ul class="sub">
-                                    <li><a href="javascript:;">Menu Item 2.1</a></li>
+                                    @for (int i = 0; i < 3; i++)
+                                    {
+                                        <li><a href="javascript:;">Menu Item +@i</a></li>
+                                    }
+
                                     <li class="sub-menu">
                                         <a href="javascript:;">Menu Item 3</a>
                                         <ul class="sub">

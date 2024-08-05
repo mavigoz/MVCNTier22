@@ -67,7 +67,7 @@ namespace Project.MVCUI.Controllers
                     CartItems = c.Listele,
                     Carts=c
 
-               
+             
                 
                 };
                 return View(sWM);
@@ -82,8 +82,12 @@ namespace Project.MVCUI.Controllers
         {
             Cart c = Session["Scart"] == null ? new Cart() : Session["Scart"] as Cart;
             c.SepettenCikar(id);
-            
 
+            if (c.TotalPrice == 0)
+            {
+                return RedirectToAction("ShoppingList");
+            
+            }else
             return RedirectToAction("List");
         }
     }
