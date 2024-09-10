@@ -10,8 +10,8 @@ namespace Project.MVCUI.VMClasses
     public class ShoopingWM
     {
      
-        public List<CartItem> CartItems { get; set; }
-      public  Category Category { get; set; }
-        public Cart Carts { get; set; }
+     public List<CartItem> CartItems { get; set; }
+     public  Category Category { get; set; }
+     public Cart Carts { get; set; }
     }
 }

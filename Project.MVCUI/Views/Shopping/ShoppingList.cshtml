@@ -2,6 +2,11 @@
 @{
     ViewBag.Title = "ShoppingList";
 }
+@TempData["Empty"]
+@TempData["EmptyBasket"]
+@TempData["Problem"]
+@TempData["ConnectRed"]
+@TempData["Pay"]
 
 <div class="row">
     <div class="col-md-3">
@@ -94,8 +99,23 @@
                     </section>
                 </div>
             }
-            <br /><h2><button class="fa fa-shopping-cart"> @Html.ActionLink("Sepete Git","List", "Shopping")    </button></h2>
+            <br /><h2><button class="fa fa-shopping-cart"> @Html.ActionLink("Sepete Git","CartPage", "Shopping")    </button></h2>
             </div>
     </div>
 </div>
 
+ @section Sepet{
+     <li>
+
+         <a href="@Url.Action("CartPage","Shopping")">  <i class="fa fa-shopping-cart"></i>    </a>
+
+
+     </li>
+     
+     
+     
+     
+     
+     
+     
+     }

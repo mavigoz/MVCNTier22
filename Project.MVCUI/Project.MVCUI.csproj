@@ -554,7 +554,7 @@
     <Content Include="Views\Home\Deneme.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shopping\ShoppingList.cshtml" />
-    <Content Include="Views\Shopping\List.cshtml" />
+    <Content Include="Views\Shopping\CartPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

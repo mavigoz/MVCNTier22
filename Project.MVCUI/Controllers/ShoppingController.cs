@@ -55,40 +55,46 @@ namespace Project.MVCUI.Controllers
             Session["Scart"] = c;
             return RedirectToAction("ShoppingList");
         }
-        public ActionResult List()
-
-        {
-            if (Session["Scart"] != null)
-            {
-                Cart c = Session["Scart"] as Cart;
-                ShoopingWM sWM = new ShoopingWM {
-
-
-                    CartItems = c.Listele,
-                    Carts=c
-
-             
-                
-                };
-                return View(sWM);
-
-            }
-
-
-
-            return RedirectToAction("ShoppingList");
-        }
-        public ActionResult DeleteList(int id)
+     
+        public ActionResult DeleteFromCArt(int id)
         {
             Cart c = Session["Scart"] == null ? new Cart() : Session["Scart"] as Cart;
             c.SepettenCikar(id);
 
             if (c.TotalPrice == 0)
             {
+                Session.Remove("Scart");
+                TempData["Empty"] = "Sepetteki Tüm ürünler Çıkartılmıştır";
                 return RedirectToAction("ShoppingList");
-            
-            }else
-            return RedirectToAction("List");
+
+            }
+            else
+            return RedirectToAction("CartPage");
+        }
+        public ActionResult CartPage()
+        {
+            if (Session["Scart"] != null)
+            { Cart c = Session["Scart"] as Cart;
+                CartPageVM vM = new CartPageVM
+                {
+                    Cart = c,
+
+                    CartItems=c.Listele
+
+
+
+                };
+
+
+
+
+        return View(vM);
+            }
+           
+
+            TempData["Empty"] = "sepet Boş";
+
+            return RedirectToAction("ShoppingList");
         }
     }
 }

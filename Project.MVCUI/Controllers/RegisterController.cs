@@ -43,7 +43,7 @@ namespace Project.MVCUI.Controllers
             }
             string gonderileceEmail="Tebrikler Hesabınız Oluştu.. Hesabınınzı active Etmek için  https://localhost:44338/Register/Activation/"+appUser.ActivetionCode+" linkine tıklayabilirsiniz"; //Boşluk bırakmassan link uzar
             MailsServis.Send(appUser.Email, body: gonderileceEmail, subject: "Hesap Aktivasyon !!!");
-        
+                         
             _apRep.Add(appUser);
 
            // if (!string.IsNullOrEmpty(appUserProfile.FirstName.Trim()) //|| !string.IsNullOrEmpty(appUserProfile.LastName.Trim()))
@@ -67,7 +67,7 @@ namespace Project.MVCUI.Controllers
                 aktivEdilecek.Active = true;
                 _apRep.Update(aktivEdilecek);
                 TempData["HesapAktifmi"] = "Hesabınız Aktif"
-;                                 return RedirectToAction("Login","Home");
+;                return RedirectToAction("Login","Home");
             }
             else
             {
