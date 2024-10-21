@@ -12,7 +12,7 @@ namespace Project.COMMON.Tools
 {
     public class MailsServis
     {
-        public static void Send(string receiver, string password = "gydscgrqltlsbjia", string body = "Test Mesejıdır", string subject = "Email Testi", string sender = "emrefidan2217@gmail.com")
+        public static void Send(string receiver, string password = "ysvmxbfjnpfcbhhr", string body = "Test Mesejıdır", string subject = "Email Testi", string sender = "emrefidan2217@gmail.com")
         {
             
 
